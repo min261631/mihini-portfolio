@@ -1520,3 +1520,130 @@ a {
     transform: none !important;
   }
 }
+
+
+/* =========================================
+   HERO PORTRAIT
+========================================= */
+
+.hero {
+  position: relative;
+}
+
+.heroTitle,
+.heroBottom,
+.heroFooter,
+.heroIntro,
+.nav {
+  position: relative;
+  z-index: 3;
+}
+
+.heroTitle {
+  padding-right: 25vw;
+}
+
+.heroPortraitWrap {
+  position: absolute;
+  z-index: 2;
+  right: clamp(48px, 7vw, 120px);
+  top: 18%;
+  width: clamp(245px, 27vw, 470px);
+  aspect-ratio: 4 / 5;
+}
+
+.heroPortraitAccent {
+  position: absolute;
+  z-index: -1;
+  width: 92%;
+  aspect-ratio: 1;
+  left: -8%;
+  top: 19%;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.heroPortrait {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 48% 48% 5px 5px;
+}
+
+.heroPortraitImage {
+  object-fit: cover;
+  object-position: center 28%;
+}
+
+.heroHello {
+  position: absolute;
+  top: 16%;
+  right: -16%;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  transform: rotate(-4deg);
+  font-family: "Comic Sans MS", "Bradley Hand", cursive;
+  font-size: clamp(0.8rem, 1.25vw, 1.25rem);
+  line-height: 1;
+}
+
+.heroHelloArrow {
+  margin-left: 4px;
+  font-size: 1.7em;
+  transform: rotate(14deg);
+}
+
+.aboutPageNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 clamp(24px, 5vw, 76px);
+  padding: 26px 0 20px;
+  border-bottom: 1px solid var(--line);
+  background: var(--background);
+}
+
+@media (max-width: 1000px) {
+  .heroTitle {
+    padding-right: 18vw;
+  }
+
+  .heroPortraitWrap {
+    right: 35px;
+    top: 23%;
+    width: clamp(220px, 30vw, 330px);
+  }
+
+  .heroHello {
+    right: -5%;
+  }
+}
+
+@media (max-width: 700px) {
+  .heroTitle {
+    padding-right: 0;
+  }
+
+  .heroPortraitWrap {
+    position: relative;
+    right: auto;
+    top: auto;
+    width: min(64vw, 290px);
+    margin: -1vh 4vw 4vh auto;
+  }
+
+  .heroHello {
+    right: -8%;
+    top: 10%;
+  }
+
+  .heroBottom {
+    margin-top: 1vh;
+  }
+
+  .aboutPageNav {
+    margin-inline: 20px;
+    padding-top: 20px;
+  }
+}
