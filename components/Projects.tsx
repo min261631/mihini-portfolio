@@ -34,7 +34,7 @@ export default function Projects() {
         categories="Video Editing · Motion · Visual Storytelling"
         year="2025 — 2026"
         description="A fast-paced visual story capturing the people, energy and community behind GDG on Campus La Trobe."
-        accent="#4285F4"
+        accent="#34A853"
         background="#090909"
         visual="video"
       />
