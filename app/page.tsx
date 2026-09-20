@@ -1,11 +1,11 @@
 import Hero from "@/components/Hero";
-import ProjectIntro from "@/components/ProjectIntro";
+import Projects from "@/components/Projects";
 
 export default function Home() {
   return (
     <main>
       <Hero />
-      <ProjectIntro />
+      <Projects />
     </main>
   );
 }
