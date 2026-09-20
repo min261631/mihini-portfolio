@@ -19,17 +19,6 @@ export default function Projects() {
 
       <ProjectShowcase
         number="02"
-        title="CAReABLE"
-        categories="Human-Centred Design · Web Development"
-        year="2026"
-        description="A digital experience shaped through co-design to help carers recognise their skills, needs and strengths."
-        accent="#9ed6c7"
-        background="#101513"
-        visual="concept"
-      />
-
-      <ProjectShowcase
-        number="03"
         title={"LEARNING\nLAB"}
         categories="Learning Design · Interaction · Accessibility"
         year="2026"
@@ -40,7 +29,7 @@ export default function Projects() {
       />
 
       <ProjectShowcase
-        number="04"
+        number="03"
         title={"GDG\nSHOWREEL"}
         categories="Video Editing · Motion · Visual Storytelling"
         year="2025 — 2026"
@@ -51,14 +40,15 @@ export default function Projects() {
       />
 
       <ProjectShowcase
-        number="05"
+        number="04"
         title={"MAP MY\nCOLES"}
         categories="Interactive Design · Mapping · AR"
         year="2025"
-        description="An interactive navigation concept combining mapping, spatial interfaces and augmented reality to rethink the in-store shopping experience."
-        accent="#77a9ff"
-        background="#10141b"
-        visual="concept"
+        description="An interactive in-store navigation concept combining mapping and augmented reality to help shoppers find products and explore the store more intuitively."
+        accent="#d84b3d"
+        background="#121212"
+        visual="mapmycoles"
+        liveUrl="https://www.youtube.com/watch?v=pjy-h0N4EQg"
       />
     </div>
   );
