@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
+import Image from "next/image";
 
 export default function Hero() {
   const heroRef = useRef<HTMLElement>(null);
@@ -38,7 +39,7 @@ export default function Hero() {
 
         <div className="navLinks">
           <a href="#work">Work</a>
-          <a href="#about">About</a>
+          <a href="/about">About</a>
           <a href="#contact">Contact</a>
         </div>
       </motion.nav>
@@ -108,6 +109,29 @@ export default function Hero() {
           </motion.div>
         </div>
       </div>
+
+      <motion.div
+        className="heroPortraitWrap"
+        initial={{ opacity: 0, y: 30, scale: 0.97 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 0.9, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
+      >
+        <div className="heroPortraitAccent" />
+        <div className="heroPortrait">
+          <Image
+            src="/projects/about/about-mihini.jpg"
+            alt="Mihini Ranasinghe"
+            fill
+            sizes="(max-width: 700px) 42vw, 28vw"
+            className="heroPortraitImage"
+            priority
+          />
+        </div>
+        <div className="heroHello">
+          <span>Hi, I’m Mihini</span>
+          <span className="heroHelloArrow">↙</span>
+        </div>
+      </motion.div>
 
       <motion.div
         className="heroBottom"
