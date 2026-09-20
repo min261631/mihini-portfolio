@@ -1172,3 +1172,228 @@ a {
     gap: 7px;
   }
 }
+
+
+/* =========================================
+   ABOUT
+========================================= */
+
+.aboutSection {
+  position: relative;
+  overflow: hidden;
+  padding: 34px clamp(24px, 5vw, 76px) 70px;
+  background: #f2f0e9;
+  color: #111;
+}
+
+.aboutMeta,
+.aboutCapabilitiesHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(17, 17, 17, 0.35);
+  font-size: 0.65rem;
+  font-weight: 650;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.aboutHero {
+  position: relative;
+  min-height: min(760px, 82vw);
+  padding-top: clamp(42px, 7vw, 100px);
+}
+
+.aboutTitle {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(4rem, 10.8vw, 10.8rem);
+  font-weight: 750;
+  line-height: 0.79;
+  letter-spacing: -0.075em;
+  text-transform: uppercase;
+}
+
+.aboutTitle span:nth-child(2) {
+  margin-left: 7vw;
+}
+
+.aboutTitleAccent {
+  margin-left: 1vw;
+  color: #ff4f2e;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.aboutPortrait {
+  position: absolute;
+  z-index: 3;
+  top: clamp(175px, 22vw, 300px);
+  right: 3vw;
+  width: clamp(230px, 29vw, 430px);
+  aspect-ratio: 4 / 5;
+  margin: 0;
+}
+
+.aboutPortrait::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 14px -14px -14px 14px;
+  border: 1px solid #111;
+}
+
+.aboutPortraitImage {
+  object-fit: cover;
+  filter: saturate(0.92) contrast(1.03);
+}
+
+.aboutPortrait figcaption {
+  position: absolute;
+  right: 0;
+  bottom: -31px;
+  font-size: 0.58rem;
+  font-weight: 650;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.aboutBody {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr);
+  gap: clamp(48px, 10vw, 150px);
+  align-items: start;
+  padding: clamp(75px, 10vw, 145px) 0;
+  border-top: 1px solid rgba(17, 17, 17, 0.2);
+}
+
+.aboutLead {
+  max-width: 850px;
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 4.4rem);
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+}
+
+.aboutCopy {
+  display: grid;
+  gap: 22px;
+  max-width: 460px;
+  padding-top: 7px;
+  font-size: clamp(0.95rem, 1.25vw, 1.12rem);
+  line-height: 1.55;
+}
+
+.aboutCopy p {
+  margin: 0;
+}
+
+.aboutCapabilities {
+  padding-top: 8px;
+}
+
+.aboutCapabilityGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.aboutCapability {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  align-items: baseline;
+  gap: 12px;
+  padding: 23px 0;
+  border-bottom: 1px solid rgba(17, 17, 17, 0.22);
+}
+
+.aboutCapability:nth-child(odd) {
+  padding-right: 30px;
+}
+
+.aboutCapability:nth-child(even) {
+  padding-left: 30px;
+  border-left: 1px solid rgba(17, 17, 17, 0.22);
+}
+
+.aboutCapability span {
+  font-size: 0.58rem;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+}
+
+.aboutCapability strong {
+  font-size: clamp(1.15rem, 2vw, 2rem);
+  font-weight: 550;
+  letter-spacing: -0.035em;
+}
+
+.aboutClosing {
+  width: min(520px, 100%);
+  margin: clamp(70px, 9vw, 130px) 0 0 auto;
+  font-size: clamp(1.35rem, 2.6vw, 2.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+@media (max-width: 800px) {
+  .aboutSection {
+    padding-inline: 20px;
+  }
+
+  .aboutMeta span:last-child,
+  .aboutCapabilitiesHeader span:last-child {
+    display: none;
+  }
+
+  .aboutHero {
+    min-height: auto;
+    padding-bottom: 90px;
+  }
+
+  .aboutTitle {
+    font-size: clamp(3.4rem, 16vw, 7rem);
+    line-height: 0.84;
+  }
+
+  .aboutTitle span:nth-child(2) {
+    margin-left: 0;
+  }
+
+  .aboutTitleAccent {
+    margin-left: 0;
+  }
+
+  .aboutPortrait {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: min(72vw, 350px);
+    margin: 58px 0 0 auto;
+  }
+
+  .aboutBody {
+    grid-template-columns: 1fr;
+    gap: 42px;
+    padding-block: 80px;
+  }
+
+  .aboutCapabilityGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .aboutCapability:nth-child(odd),
+  .aboutCapability:nth-child(even) {
+    padding-inline: 0;
+    border-left: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aboutPortrait,
+  .aboutTitle {
+    transform: none !important;
+  }
+}
