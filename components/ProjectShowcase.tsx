@@ -104,29 +104,46 @@ export default function ProjectShowcase({
           </div>
         ) : visual === "mapmycoles" ? (
           <div className="mapMyColesVisual">
+            <div className="mapPresentation">
+              <img
+                src="/projects/mapmycoles/presentation.jpg"
+                alt="Mihini presenting the MapMyColes project at Cisco Live"
+                onError={(event) => {
+                  event.currentTarget.src =
+                    "https://img.youtube.com/vi/pjy-h0N4EQg/maxresdefault.jpg";
+                }}
+              />
+              <span className="mapPresentationLabel">Presenting MapMyColes · Cisco Live</span>
+            </div>
+
+            <div className="mapLogoCard" aria-label="MapMyColes">
+              <img
+                className="mapLogoImage"
+                src="/projects/mapmycoles/logo.jpg"
+                alt="MapMyColes logo"
+                onError={(event) => {
+                  event.currentTarget.style.display = "none";
+                }}
+              />
+              <div className="mapLogoFallback">
+                <div className="mapLogoType">
+                  <strong>MapMy</strong>
+                  <span>Coles</span>
+                </div>
+              </div>
+              <span className="mapFinalist">Cisco Live · MasterTech Finalist</span>
+            </div>
+
             <a
-              className="mapPitch"
+              className="mapPitchButton"
               href={liveUrl}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Watch the MapMyColes pitch on YouTube"
             >
-              <img
-                src="https://img.youtube.com/vi/pjy-h0N4EQg/maxresdefault.jpg"
-                alt="MapMyColes pitch video preview"
-              />
-              <span className="mapPlay">▶</span>
-              <span className="mapWatch">Watch pitch ↗</span>
+              <span className="mapPitchIcon">▶</span>
+              <span>Watch pitch ↗</span>
             </a>
-
-            <div className="mapLogoCard" aria-label="MapMyColes">
-              <span className="mapCart">🛒</span>
-              <div className="mapLogoType">
-                <strong>MapMy</strong>
-                <span>Coles</span>
-              </div>
-              <span className="mapFinalist">Cisco Live · MasterTech Finalist</span>
-            </div>
 
             <div className="mapCaption">
               <span>Interactive retail navigation</span>
