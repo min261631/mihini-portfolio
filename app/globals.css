@@ -274,7 +274,7 @@ a {
 
   padding: 32px 42px 110px;
 
-  background: #111111;
+  background: var(--project-background, #111111);
   color: #f2f0e9;
 }
 
@@ -330,7 +330,7 @@ a {
   margin-right: 3vw;
   padding-top: 10px;
 
-  color: var(--enactus-yellow);
+  color: var(--project-accent, var(--enactus-yellow));
 
   font-size: 0.75rem;
   font-weight: 600;
@@ -393,8 +393,8 @@ a {
 }
 
 .projectLinks a:hover {
-  color: var(--enactus-yellow);
-  border-color: var(--enactus-yellow);
+  color: var(--project-accent, var(--enactus-yellow));
+  border-color: var(--project-accent, var(--enactus-yellow));
 }
 
 
@@ -407,7 +407,7 @@ a {
 
   padding: clamp(20px, 4vw, 65px);
 
-  background: var(--enactus-yellow);
+  background: var(--project-accent, var(--enactus-yellow));
 }
 
 
@@ -684,5 +684,72 @@ a {
 
   .browserMockup:hover .enactusScreenshot {
     transform: none;
+  }
+}
+
+/* =========================================
+   REUSABLE PROJECT SHOWCASES
+========================================= */
+
+.projectShowcase {
+  --project-accent: var(--enactus-yellow);
+  --project-background: #111111;
+}
+
+.projectPlaceholder {
+  min-height: 68vh;
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 2fr) 1fr;
+  align-items: center;
+  gap: 32px;
+  padding: clamp(28px, 5vw, 80px);
+  background: #f2f0e9;
+  color: #111111;
+}
+
+.placeholderEyebrow,
+.placeholderNote {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.placeholderNote {
+  align-self: end;
+  text-align: right;
+}
+
+.placeholderTitle {
+  font-size: clamp(3.8rem, 8vw, 8.5rem);
+  font-weight: 500;
+  line-height: 0.82;
+  letter-spacing: -0.07em;
+}
+
+.projectPlaceholder--video {
+  background: #050505;
+  color: #f2f0e9;
+}
+
+.projectPlaceholder--learning .placeholderTitle {
+  font-style: italic;
+}
+
+@media (max-width: 700px) {
+  .projectPlaceholder {
+    min-height: 58vh;
+    grid-template-columns: 1fr;
+    align-content: space-between;
+    gap: 45px;
+    padding: 28px 22px;
+  }
+
+  .placeholderTitle {
+    font-size: clamp(3.5rem, 17vw, 6rem);
+  }
+
+  .placeholderNote {
+    text-align: left;
   }
 }
