@@ -2,7 +2,7 @@
 
 import { motion } from "motion/react";
 import Image from "next/image";
-import type { CSSProperties } from "react";
+import { useRef, useState, type CSSProperties } from "react";
 
 type ProjectVisual = "image" | "learning" | "video" | "concept" | "mapmycoles";
 
@@ -36,6 +36,21 @@ export default function ProjectShowcase({
   label,
 }: ProjectShowcaseProps) {
   const lines = title.split("\n");
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(true);
+
+  const toggleVideo = () => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (video.paused) {
+      void video.play();
+      setIsPlaying(true);
+    } else {
+      video.pause();
+      setIsPlaying(false);
+    }
+  };
   const style = {
     "--project-accent": accent,
     "--project-background": background,
@@ -100,6 +115,44 @@ export default function ProjectShowcase({
                 className="enactusScreenshot"
                 priority={number === "01"}
               />
+            </div>
+          </div>
+        ) : visual === "video" ? (
+          <div className="gdgVisual">
+            <div className="gdgVideoFrame">
+              <video
+                ref={videoRef}
+                className="gdgVideo"
+                src="/projects/gdg/showreel.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                aria-label="GDG on Campus La Trobe community and event showreel"
+                onPlay={() => setIsPlaying(true)}
+                onPause={() => setIsPlaying(false)}
+              />
+
+              <div className="gdgVideoTopline">
+                <span>Community / Events / Technology</span>
+                <span>00:30 · 4K</span>
+              </div>
+
+              <button
+                type="button"
+                className="gdgVideoControl"
+                onClick={toggleVideo}
+                aria-label={isPlaying ? "Pause GDG showreel" : "Play GDG showreel"}
+              >
+                <span>{isPlaying ? "Ⅱ" : "▶"}</span>
+                {isPlaying ? "Pause" : "Play"}
+              </button>
+            </div>
+
+            <div className="gdgVideoFooter">
+              <span>GDG on Campus · La Trobe University</span>
+              <span>Motion · Editing · Visual Storytelling</span>
             </div>
           </div>
         ) : visual === "mapmycoles" ? (
