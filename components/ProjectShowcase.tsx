@@ -158,9 +158,12 @@ export default function ProjectShowcase({
         ) : visual === "mapmycoles" ? (
           <div className="mapMyColesVisual">
             <div className="mapPresentation">
-              <img
+              <Image
                 src="/projects/mapmycoles/presentation.jpg"
                 alt="Mihini presenting the MapMyColes project at Cisco Live"
+                width={1600}
+                height={900}
+                unoptimized
                 onError={(event) => {
                   event.currentTarget.src =
                     "https://img.youtube.com/vi/pjy-h0N4EQg/maxresdefault.jpg";
@@ -170,10 +173,13 @@ export default function ProjectShowcase({
             </div>
 
             <div className="mapLogoCard" aria-label="MapMyColes">
-              <img
+              <Image
                 className="mapLogoImage"
                 src="/projects/mapmycoles/logo.jpg"
                 alt="MapMyColes logo"
+                width={900}
+                height={500}
+                unoptimized
                 onError={(event) => {
                   event.currentTarget.style.display = "none";
                 }}
