@@ -32,7 +32,7 @@ export default function AboutIntro() {
           transition={{ duration: 0.85, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
         >
           <Image
-            src="/projects/about/about-mihini.jpg"
+            src="/projects/about/about-mihini.png"
             alt="Mihini Ranasinghe"
             fill
             sizes="(max-width: 800px) 84vw, 38vw"

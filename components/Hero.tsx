@@ -119,7 +119,7 @@ export default function Hero() {
         <div className="heroPortraitAccent" />
         <div className="heroPortrait">
           <Image
-            src="/projects/about/about-mihini.jpg"
+            src="/projects/about/about-mihini.png"
             alt="Mihini Ranasinghe"
             fill
             sizes="(max-width: 700px) 42vw, 28vw"
