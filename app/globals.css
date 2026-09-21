@@ -1967,3 +1967,47 @@ a {
     height: 36px;
   }
 }
+
+
+/* Keep hero contact icons aligned with the intro label */
+.heroIntroLeft {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.heroIntroLeft > p {
+  margin: 0;
+}
+
+.heroIntroLeft .heroSocials {
+  position: static;
+  display: flex;
+  gap: 7px;
+  margin: 0;
+}
+
+.heroIntroLeft .heroSocials a {
+  width: 32px;
+  height: 32px;
+}
+
+.heroIntroLeft .heroSocials svg {
+  width: 14px;
+  height: 14px;
+}
+
+@media (max-width: 700px) {
+  .heroIntroLeft {
+    gap: 11px;
+  }
+
+  .heroIntroLeft .heroSocials {
+    margin: 0;
+  }
+
+  .heroIntroLeft .heroSocials a {
+    width: 30px;
+    height: 30px;
+  }
+}
