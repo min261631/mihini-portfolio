@@ -2118,3 +2118,99 @@ a {
     aspect-ratio: 16 / 9;
   }
 }
+
+
+/* MapMyColes editorial landscape collage */
+@media (min-width: 701px) {
+  .mapMyColesVisual {
+    min-height: 78vh;
+  }
+
+  .mapPresentation {
+    inset: 6% 7% 13% 5%;
+  }
+
+  .mapPresentation img {
+    object-position: 28% center;
+  }
+
+  .mapDemoStack {
+    position: absolute;
+    z-index: 4;
+    top: 8%;
+    right: 4%;
+    width: min(40vw, 590px);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    pointer-events: none;
+  }
+
+  .mapDemoCard {
+    width: 82%;
+    pointer-events: auto;
+    box-shadow: 0 24px 65px rgba(0, 0, 0, 0.26);
+  }
+
+  .mapDemoCard:first-child {
+    align-self: flex-end;
+    transform: rotate(1.8deg);
+  }
+
+  .mapDemoCard:last-child {
+    align-self: flex-start;
+    transform: translate(-10%, -2px) rotate(-1.8deg);
+  }
+
+  .mapDemoCard video {
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  .mapPitchButton {
+    right: 5%;
+    bottom: 6%;
+  }
+
+  .mapCaption {
+    right: 30%;
+  }
+}
+
+@media (max-width: 700px) {
+  .mapPresentation {
+    height: 48vh;
+  }
+
+  .mapPresentation img {
+    object-position: 28% center;
+  }
+
+  .mapDemoStack {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: -34px;
+    padding: 0 4px;
+  }
+
+  .mapDemoCard {
+    width: 88%;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.22);
+  }
+
+  .mapDemoCard:first-child {
+    align-self: flex-end;
+    transform: rotate(1deg);
+  }
+
+  .mapDemoCard:last-child {
+    align-self: flex-start;
+    transform: rotate(-1deg);
+  }
+
+  .mapDemoCard video {
+    aspect-ratio: 16 / 9;
+  }
+}
