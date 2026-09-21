@@ -2771,3 +2771,152 @@ button:focus-visible {
     transform: none;
   }
 }
+
+
+/* Remote Observatory responsive consolidation */
+.telescopeVisual,
+.telescopeVisual * {
+  min-width: 0;
+}
+
+.telescopeVideoFrame,
+.telescopeShot {
+  max-width: 100%;
+}
+
+.telescopeShot img,
+.telescopeVideoFrame video {
+  max-width: 100%;
+}
+
+@media (min-width: 801px) and (max-width: 1100px) {
+  .telescopeVisual {
+    min-height: clamp(700px, 78vw, 860px);
+    padding: 28px 28px 64px;
+  }
+
+  .telescopeVideoFrame {
+    width: 72%;
+  }
+
+  .telescopeShot--feed {
+    top: 11%;
+    right: 2%;
+    width: 40%;
+  }
+
+  .telescopeShot--home {
+    left: 2%;
+    bottom: 12%;
+    width: 37%;
+  }
+
+  .telescopeShot--weather {
+    left: 31%;
+    bottom: 5%;
+    width: 35%;
+  }
+
+  .telescopeShot--status {
+    right: 2%;
+    bottom: 13%;
+    width: 39%;
+  }
+}
+
+@media (max-width: 800px) {
+  .telescopeVisual {
+    width: 100%;
+    min-height: 0;
+    overflow: hidden;
+    padding: clamp(14px, 4vw, 22px);
+  }
+
+  .telescopeVideoFrame {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    transform: none;
+  }
+
+  .telescopeShot,
+  .telescopeShot--feed,
+  .telescopeShot--home,
+  .telescopeShot--weather,
+  .telescopeShot--status {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    align-self: stretch;
+    transform: none;
+  }
+
+  .telescopeShot img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .telescopeFooter {
+    width: 100%;
+    padding-top: 2px;
+  }
+}
+
+@media (max-width: 560px) {
+  .projectCanvas {
+    overflow: hidden;
+  }
+
+  .telescopeVisual {
+    gap: 12px;
+    padding: 10px;
+  }
+
+  .telescopeVideoTopline {
+    top: 8px;
+    left: 9px;
+    right: 9px;
+    font-size: 0.48rem;
+    line-height: 1.3;
+  }
+
+  .telescopeVideoControl {
+    left: 9px;
+    bottom: 9px;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 9px 12px;
+  }
+
+  .telescopeShot figcaption {
+    padding: 9px 10px;
+    font-size: 0.5rem;
+    line-height: 1.35;
+  }
+
+  .telescopeFooter {
+    font-size: 0.5rem;
+    line-height: 1.45;
+  }
+}
+
+@media (max-width: 380px) {
+  .telescopeVideoTopline span:first-child {
+    max-width: 68%;
+  }
+
+  .telescopeVideoControl {
+    font-size: 0.58rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .telescopeVideoFrame,
+  .telescopeShot,
+  .telescopeShot--feed,
+  .telescopeShot--home,
+  .telescopeShot--weather,
+  .telescopeShot--status {
+    transform: none !important;
+  }
+}
