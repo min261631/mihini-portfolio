@@ -26,6 +26,6 @@ and human.
 
 ## Links
 
-Portfolio: mihini-portfolio.vercel.app
-LinkedIn: https://www.linkedin.com/in/mihini-ranasinghe/
+Portfolio: https://mihini-portfolio.vercel.app/  
+LinkedIn: https://www.linkedin.com/in/mihini-ranasinghe/  
 GitHub: https://github.com/min261631
