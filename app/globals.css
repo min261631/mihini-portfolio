@@ -2080,3 +2080,41 @@ a {
     padding: 9px 10px 10px;
   }
 }
+
+
+/* MapMyColes landscape demo refinement */
+.mapDemoStack {
+  width: min(34vw, 500px);
+  grid-template-columns: 1fr;
+  gap: 14px;
+  top: 7%;
+}
+
+.mapDemoCard:first-child,
+.mapDemoCard:last-child {
+  transform: none;
+}
+
+.mapDemoCard video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+@media (max-width: 700px) {
+  .mapDemoStack {
+    width: 100%;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 0;
+  }
+
+  .mapDemoCard:first-child,
+  .mapDemoCard:last-child {
+    transform: none;
+  }
+
+  .mapDemoCard video {
+    aspect-ratio: 16 / 9;
+  }
+}
