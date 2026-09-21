@@ -1924,8 +1924,8 @@ a {
 }
 
 .heroSocials a {
-  width: 38px;
-  height: 38px;
+  width: 52px;
+  height: 52px;
   display: grid;
   place-items: center;
   border: 1px solid rgba(17, 17, 17, 0.24);
@@ -1936,8 +1936,8 @@ a {
 }
 
 .heroSocials svg {
-  width: 17px;
-  height: 17px;
+  width: 22px;
+  height: 22px;
   fill: currentColor;
 }
 
@@ -1963,8 +1963,8 @@ a {
   }
 
   .heroSocials a {
-    width: 36px;
-    height: 36px;
+    width: 44px;
+    height: 44px;
   }
 }
 
@@ -1988,13 +1988,13 @@ a {
 }
 
 .heroIntroLeft .heroSocials a {
-  width: 32px;
-  height: 32px;
+  width: 42px;
+  height: 42px;
 }
 
 .heroIntroLeft .heroSocials svg {
-  width: 14px;
-  height: 14px;
+  width: 19px;
+  height: 19px;
 }
 
 @media (max-width: 700px) {
@@ -2007,7 +2007,7 @@ a {
   }
 
   .heroIntroLeft .heroSocials a {
-    width: 30px;
-    height: 30px;
+    width: 38px;
+    height: 38px;
   }
 }
