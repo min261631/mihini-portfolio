@@ -2011,3 +2011,72 @@ a {
     height: 38px;
   }
 }
+
+
+/* MapMyColes product demos */
+.mapDemoStack {
+  position: absolute;
+  z-index: 3;
+  right: 4%;
+  top: 8%;
+  width: min(30vw, 430px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  align-items: start;
+}
+
+.mapDemoCard {
+  margin: 0;
+  overflow: hidden;
+  background: #111;
+  color: #fff;
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.18);
+}
+
+.mapDemoCard:first-child {
+  transform: translateY(26px) rotate(-1.5deg);
+}
+
+.mapDemoCard:last-child {
+  transform: rotate(1.5deg);
+}
+
+.mapDemoCard video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  background: #090909;
+}
+
+.mapDemoCard figcaption {
+  padding: 11px 12px 12px;
+  font-size: 0.58rem;
+  font-weight: 650;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 700px) {
+  .mapDemoStack {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 0 4px;
+  }
+
+  .mapDemoCard:first-child {
+    transform: translateY(18px) rotate(-1deg);
+  }
+
+  .mapDemoCard:last-child {
+    transform: rotate(1deg);
+  }
+
+  .mapDemoCard figcaption {
+    padding: 9px 10px 10px;
+  }
+}
