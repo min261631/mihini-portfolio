@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Hero() {
   const heroRef = useRef<HTMLElement>(null);
@@ -39,7 +40,7 @@ export default function Hero() {
 
         <div className="navLinks">
           <a href="#work">Work</a>
-          <a href="/about">About</a>
+          <Link href="/about">About</Link>
           <a href="#contact">Contact</a>
         </div>
       </motion.nav>
