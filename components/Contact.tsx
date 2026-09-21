@@ -27,7 +27,7 @@ export default function Contact() {
           I’m always interested in thoughtful digital projects, creative
           collaborations and opportunities to build something useful.
         </p>
-        <a className="contactEmail" href="mailto:mihini.ranasinghe@gmail.com">
+        <a className="contactEmail" href="mailto:mihininiweka@gmail.com">
           <span>Get in touch</span>
           <span aria-hidden="true">↗</span>
         </a>
@@ -40,7 +40,7 @@ export default function Contact() {
         </div>
 
         <div className="contactLinks">
-          <a href="mailto:mihini.ranasinghe@gmail.com">Email ↗</a>
+          <a href="mailto:mihininiweka@gmail.com">Email ↗</a>
           <a href="https://www.linkedin.com/in/mihini-ranasinghe/" target="_blank" rel="noopener noreferrer">
             LinkedIn ↗
           </a>
