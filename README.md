@@ -18,19 +18,6 @@ interactive systems and multimedia.
 - Motion
 - CSS
 
-## Running Locally
-
-npm install
-npm run dev
-
-Then open http://localhost:3000
-
-## Production
-
-npm run lint
-npm run build
-npm start
-
 ## About
 
 I'm Mihini Ranasinghe, a designer and developer based in Australia. I combine
@@ -39,6 +26,6 @@ and human.
 
 ## Links
 
-Portfolio: [live portfolio URL]
-LinkedIn: [profile]
-GitHub: [profile]
+Portfolio: mihini-portfolio.vercel.app
+LinkedIn: https://www.linkedin.com/in/mihini-ranasinghe/
+GitHub: https://github.com/min261631
