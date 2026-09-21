@@ -2,9 +2,9 @@
 
 import { motion } from "motion/react";
 import Image from "next/image";
-import type { CSSProperties } from "react";
+import { useRef, useState, type CSSProperties } from "react";
 
-type ProjectVisual = "image" | "learning" | "video" | "concept";
+type ProjectVisual = "image" | "learning" | "video" | "concept" | "mapmycoles";
 
 interface ProjectShowcaseProps {
   number: string;
@@ -36,6 +36,21 @@ export default function ProjectShowcase({
   label,
 }: ProjectShowcaseProps) {
   const lines = title.split("\n");
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(true);
+
+  const toggleVideo = () => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (video.paused) {
+      void video.play();
+      setIsPlaying(true);
+    } else {
+      video.pause();
+      setIsPlaying(false);
+    }
+  };
   const style = {
     "--project-accent": accent,
     "--project-background": background,
@@ -69,7 +84,7 @@ export default function ProjectShowcase({
 
       <div className="projectStatement">
         <p>{description}</p>
-        {liveUrl && (
+        {liveUrl && visual !== "mapmycoles" && (
           <div className="projectLinks">
             <a href={liveUrl} target="_blank" rel="noopener noreferrer">
               Visit live site ↗
@@ -88,11 +103,7 @@ export default function ProjectShowcase({
         {visual === "image" && image ? (
           <div className="browserMockup">
             <div className="browserTop">
-              <div className="browserDots">
-                <span />
-                <span />
-                <span />
-              </div>
+              <div className="browserDots"><span /><span /><span /></div>
               <span>{label ?? title.replace("\n", " ")}</span>
             </div>
             <div className="browserImage">
@@ -106,12 +117,103 @@ export default function ProjectShowcase({
               />
             </div>
           </div>
+        ) : visual === "video" ? (
+          <div className="gdgVisual">
+            <div className="gdgVideoFrame">
+              <video
+                ref={videoRef}
+                className="gdgVideo"
+                src="/projects/gdg/showreel.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                aria-label="GDG on Campus La Trobe community and event showreel"
+                onPlay={() => setIsPlaying(true)}
+                onPause={() => setIsPlaying(false)}
+              />
+
+              <div className="gdgVideoTopline">
+                <span>Community / Events / Technology</span>
+                <span>00:30 · 4K</span>
+              </div>
+
+              <button
+                type="button"
+                className="gdgVideoControl"
+                onClick={toggleVideo}
+                aria-label={isPlaying ? "Pause GDG showreel" : "Play GDG showreel"}
+              >
+                <span>{isPlaying ? "Ⅱ" : "▶"}</span>
+                {isPlaying ? "Pause" : "Play"}
+              </button>
+            </div>
+
+            <div className="gdgVideoFooter">
+              <span>GDG on Campus · La Trobe University</span>
+              <span>Motion · Editing · Visual Storytelling</span>
+            </div>
+          </div>
+        ) : visual === "mapmycoles" ? (
+          <div className="mapMyColesVisual">
+            <div className="mapPresentation">
+              <Image
+                src="/projects/mapmycoles/presentation.jpg"
+                alt="Mihini presenting the MapMyColes project at Cisco Live"
+                width={1600}
+                height={900}
+                unoptimized
+                onError={(event) => {
+                  event.currentTarget.src =
+                    "https://img.youtube.com/vi/pjy-h0N4EQg/maxresdefault.jpg";
+                }}
+              />
+              <span className="mapPresentationLabel">Presenting MapMyColes · Cisco Live</span>
+            </div>
+
+            <div className="mapLogoCard" aria-label="MapMyColes">
+              <Image
+                className="mapLogoImage"
+                src="/projects/mapmycoles/logo.jpg"
+                alt="MapMyColes logo"
+                width={900}
+                height={500}
+                unoptimized
+                onError={(event) => {
+                  event.currentTarget.style.display = "none";
+                }}
+              />
+              <div className="mapLogoFallback">
+                <div className="mapLogoType">
+                  <strong>MapMy</strong>
+                  <span>Coles</span>
+                </div>
+              </div>
+              <span className="mapFinalist">Cisco Live · MasterTech Finalist</span>
+            </div>
+
+            <a
+              className="mapPitchButton"
+              href={liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Watch the MapMyColes pitch on YouTube"
+            >
+              <span className="mapPitchIcon">▶</span>
+              <span>Watch pitch ↗</span>
+            </a>
+
+            <div className="mapCaption">
+              <span>Interactive retail navigation</span>
+              <span>Mapping · Spatial UI · AR</span>
+            </div>
+          </div>
         ) : (
           <div className={`projectPlaceholder projectPlaceholder--${visual}`}>
             <span className="placeholderEyebrow">{categories}</span>
             <div className="placeholderTitle">
               {visual === "learning" && <>Learn.<br />Try.<br />Understand.</>}
-              {visual === "video" && <>People.<br />Energy.<br />Community.</>}
               {visual === "concept" && <>{title.replace("\n", " ")}</>}
             </div>
             <span className="placeholderNote">Visual preview coming next</span>
