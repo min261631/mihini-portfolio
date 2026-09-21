@@ -1674,3 +1674,66 @@ a {
     width: clamp(205px, 27vw, 300px);
   }
 }
+
+
+/* Hero portrait: ground the cutout on the footer line and keep CTA readable */
+@media (min-width: 1001px) {
+  .heroPortraitWrap {
+    top: 13%;
+    bottom: 49px;
+    right: clamp(72px, 7vw, 120px);
+    width: clamp(360px, 31vw, 535px);
+    aspect-ratio: auto;
+  }
+
+  .heroPortrait {
+    inset: 0;
+    bottom: 0;
+    overflow: visible;
+    border-radius: 0;
+  }
+
+  .heroPortraitImage {
+    object-fit: contain;
+    object-position: center bottom;
+  }
+
+  .heroPortraitAccent {
+    width: 76%;
+    left: 7%;
+    top: 24%;
+  }
+
+  .heroHello {
+    right: -3%;
+    top: 17%;
+  }
+
+  .heroBottom {
+    z-index: 5;
+  }
+
+  .explore {
+    position: relative;
+    z-index: 6;
+    padding: 14px 12px 14px 24px;
+    border-radius: 999px;
+    background: rgba(242, 240, 233, 0.76);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .explore::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: -8px -10px;
+    border-radius: inherit;
+    background: linear-gradient(
+      90deg,
+      rgba(242, 240, 233, 0.18),
+      rgba(242, 240, 233, 0.92) 42%,
+      rgba(242, 240, 233, 0.98)
+    );
+  }
+}
