@@ -1911,3 +1911,59 @@ a {
     flex-wrap: wrap;
   }
 }
+
+
+/* Hero social icon links */
+.heroSocials {
+  position: absolute;
+  z-index: 6;
+  top: 86px;
+  left: clamp(24px, 5vw, 76px);
+  display: flex;
+  gap: 9px;
+}
+
+.heroSocials a {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(17, 17, 17, 0.24);
+  border-radius: 50%;
+  color: #111;
+  background: rgba(242, 240, 233, 0.5);
+  transition: transform 180ms ease, color 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.heroSocials svg {
+  width: 17px;
+  height: 17px;
+  fill: currentColor;
+}
+
+.heroSocials a:hover,
+.heroSocials a:focus-visible {
+  color: #ff4f2e;
+  border-color: #ff4f2e;
+  background: rgba(242, 240, 233, 0.88);
+  transform: translateY(-3px);
+}
+
+.heroSocials a:focus-visible {
+  outline: 2px solid #ff4f2e;
+  outline-offset: 3px;
+}
+
+@media (max-width: 700px) {
+  .heroSocials {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin-top: 14px;
+  }
+
+  .heroSocials a {
+    width: 36px;
+    height: 36px;
+  }
+}
