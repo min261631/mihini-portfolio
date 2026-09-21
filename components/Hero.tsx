@@ -34,9 +34,9 @@ export default function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.1 }}
       >
-        <a href="/" className="logo" aria-label="Mihini Ranasinghe home">
+        <Link href="/" className="logo" aria-label="Mihini Ranasinghe home">
           MR<span>.</span>
-        </a>
+        </Link>
 
         <div className="navLinks">
           <a href="#work">Work</a>
