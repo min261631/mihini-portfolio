@@ -172,25 +172,32 @@ export default function ProjectShowcase({
               <span className="mapPresentationLabel">Presenting MapMyColes · Cisco Live</span>
             </div>
 
-            <div className="mapLogoCard" aria-label="MapMyColes">
-              <Image
-                className="mapLogoImage"
-                src="/projects/mapmycoles/logo.jpg"
-                alt="MapMyColes logo"
-                width={900}
-                height={500}
-                unoptimized
-                onError={(event) => {
-                  event.currentTarget.style.display = "none";
-                }}
-              />
-              <div className="mapLogoFallback">
-                <div className="mapLogoType">
-                  <strong>MapMy</strong>
-                  <span>Coles</span>
-                </div>
-              </div>
-              <span className="mapFinalist">Cisco Live · MasterTech Finalist</span>
+            <div className="mapDemoStack">
+              <figure className="mapDemoCard">
+                <video
+                  src="/projects/mapmycoles/navigation-demo.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  aria-label="MapMyColes navigation demo"
+                />
+                <figcaption>In-store navigation</figcaption>
+              </figure>
+
+              <figure className="mapDemoCard">
+                <video
+                  src="/projects/mapmycoles/ar-demo.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  aria-label="MapMyColes augmented reality demo"
+                />
+                <figcaption>AR experience</figcaption>
+              </figure>
             </div>
 
             <a
