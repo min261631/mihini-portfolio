@@ -1647,3 +1647,30 @@ a {
     padding-top: 20px;
   }
 }
+
+
+/* Hero portrait spacing refinement */
+@media (min-width: 1001px) {
+  .heroPortraitWrap {
+    right: clamp(95px, 9vw, 155px);
+    top: 12%;
+    width: clamp(225px, 24.5vw, 425px);
+  }
+
+  .heroPortrait {
+    bottom: 8%;
+  }
+
+  .heroHello {
+    right: -12%;
+    top: 18%;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 1000px) {
+  .heroPortraitWrap {
+    right: 58px;
+    top: 17%;
+    width: clamp(205px, 27vw, 300px);
+  }
+}
