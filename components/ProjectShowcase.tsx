@@ -245,6 +245,28 @@ export default function ProjectShowcase({
               <figcaption>System status · Monitoring</figcaption>
             </figure>
 
+            <figure className="telescopeShot telescopeShot--home">
+              <Image
+                src="/projects/telescope/home.png"
+                alt="La Trobe Observatory home interface with launch telescope control and system status actions"
+                width={1728}
+                height={886}
+                unoptimized
+              />
+              <figcaption>Observatory home · Entry point</figcaption>
+            </figure>
+
+            <figure className="telescopeShot telescopeShot--weather">
+              <Image
+                src="/projects/telescope/weather.png"
+                alt="Weather monitoring interface showing live atmospheric and observation conditions"
+                width={1728}
+                height={886}
+                unoptimized
+              />
+              <figcaption>Weather · Observation conditions</figcaption>
+            </figure>
+
             <div className="telescopeFooter">
               <span>Live control · Streaming · Monitoring</span>
               <span>Web interface · Connected systems</span>
