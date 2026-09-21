@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import Image from "next/image";
 import { useRef, useState, type CSSProperties } from "react";
 
@@ -38,6 +38,10 @@ export default function ProjectShowcase({
   const lines = title.split("\n");
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(true);
+  const [mapVideosPlaying, setMapVideosPlaying] = useState(true);
+  const navigationVideoRef = useRef<HTMLVideoElement>(null);
+  const arVideoRef = useRef<HTMLVideoElement>(null);
+  const prefersReducedMotion = useReducedMotion();
 
   const toggleVideo = () => {
     const video = videoRef.current;
@@ -51,6 +55,25 @@ export default function ProjectShowcase({
       setIsPlaying(false);
     }
   };
+  const toggleMapVideos = () => {
+    const videos = [navigationVideoRef.current, arVideoRef.current].filter(
+      (video): video is HTMLVideoElement => Boolean(video)
+    );
+
+    if (mapVideosPlaying) {
+      videos.forEach((video) => video.pause());
+      setMapVideosPlaying(false);
+    } else {
+      videos.forEach((video) => {
+        void video.play();
+      });
+      setMapVideosPlaying(true);
+    }
+  };
+
+  const enterFrom = prefersReducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 80 };
+  const canvasFrom = prefersReducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 };
+
   const style = {
     "--project-accent": accent,
     "--project-background": background,
@@ -66,10 +89,10 @@ export default function ProjectShowcase({
 
       <motion.div
         className="projectHeading"
-        initial={{ opacity: 0, y: 80 }}
+        initial={enterFrom}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.25 }}
-        transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: prefersReducedMotion ? 0 : 0.9, ease: [0.16, 1, 0.3, 1] }}
       >
         <span className="projectNumber">{number}</span>
         <h2>
@@ -95,10 +118,10 @@ export default function ProjectShowcase({
 
       <motion.div
         className="projectCanvas"
-        initial={{ opacity: 0, y: 50 }}
+        initial={canvasFrom}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.12 }}
-        transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: prefersReducedMotion ? 0 : 0.9, ease: [0.16, 1, 0.3, 1] }}
       >
         {visual === "image" && image ? (
           <div className="browserMockup">
@@ -175,8 +198,9 @@ export default function ProjectShowcase({
             <div className="mapDemoStack">
               <figure className="mapDemoCard">
                 <video
+                  ref={navigationVideoRef}
                   src="/projects/mapmycoles/navigation-demo.mp4"
-                  autoPlay
+                  autoPlay={!prefersReducedMotion}
                   muted
                   loop
                   playsInline
@@ -188,8 +212,9 @@ export default function ProjectShowcase({
 
               <figure className="mapDemoCard">
                 <video
+                  ref={arVideoRef}
                   src="/projects/mapmycoles/ar-demo.mp4"
-                  autoPlay
+                  autoPlay={!prefersReducedMotion}
                   muted
                   loop
                   playsInline
@@ -199,6 +224,17 @@ export default function ProjectShowcase({
                 <figcaption>AR experience</figcaption>
               </figure>
             </div>
+
+            <button
+              type="button"
+              className="mapDemoControl"
+              onClick={toggleMapVideos}
+              aria-pressed={!mapVideosPlaying}
+              aria-label={mapVideosPlaying ? "Pause MapMyColes demo videos" : "Play MapMyColes demo videos"}
+            >
+              <span aria-hidden="true">{mapVideosPlaying ? "Ⅱ" : "▶"}</span>
+              {mapVideosPlaying ? "Pause demos" : "Play demos"}
+            </button>
 
             <a
               className="mapPitchButton"
