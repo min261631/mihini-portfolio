@@ -17,6 +17,8 @@ export default function Hero() {
   const digitalX = useTransform(scrollYProgress, [0, 1], ["0%", "25%"]);
   const experienceX = useTransform(scrollYProgress, [0, 1], ["0%", "-8%"]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.85], [1, 0]);
+  const digitalStyle = { x: digitalX };
+  const experienceStyle = { x: experienceX };
 
   const lineAnimation = {
     initial: { y: "110%" },
