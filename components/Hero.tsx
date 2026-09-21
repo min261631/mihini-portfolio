@@ -1,12 +1,13 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Hero() {
   const heroRef = useRef<HTMLElement>(null);
+  const prefersReducedMotion = useReducedMotion();
 
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -111,7 +112,7 @@ export default function Hero() {
         <div className="titleMask titleLineOffset">
           <motion.div
             className="titleLine"
-            style={{ x: digitalX }}
+            style={digitalStyle}
             variants={lineAnimation}
             initial="initial"
             animate="animate"
@@ -128,7 +129,7 @@ export default function Hero() {
         <div className="titleMask">
           <motion.div
             className="titleLine"
-            style={{ x: experienceX }}
+            style={experienceStyle}
             variants={lineAnimation}
             initial="initial"
             animate="animate"
