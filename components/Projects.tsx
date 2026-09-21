@@ -19,13 +19,13 @@ export default function Projects() {
 
       <ProjectShowcase
         number="02"
-        title={"LEARNING\nLAB"}
-        categories="Learning Design · Interaction · Accessibility"
-        year="2026"
-        description="An experimental learning experience exploring how interaction, feedback and visual design can make complex information easier to understand."
-        accent="#c8b8ff"
-        background="#15131a"
-        visual="learning"
+        title={"REMOTE\nOBSERVATORY"}
+        categories="Web Interface · Real-time Systems · Remote Control"
+        year="2025"
+        description="A remote observatory platform for controlling a telescope, viewing live astronomical footage and monitoring observation conditions through a single web interface."
+        accent="#7c5cff"
+        background="#0b101c"
+        visual="telescope"
       />
 
       <ProjectShowcase
