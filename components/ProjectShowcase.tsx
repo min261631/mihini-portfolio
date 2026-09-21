@@ -349,10 +349,7 @@ export default function ProjectShowcase({
         ) : (
           <div className={`projectPlaceholder projectPlaceholder--${visual}`}>
             <span className="placeholderEyebrow">{categories}</span>
-            <div className="placeholderTitle">
-              {visual === "learning" && <>Learn.<br />Try.<br />Understand.</>}
-              {visual === "concept" && <>{title.replace("\n", " ")}</>}
-            </div>
+            <div className="placeholderTitle">{title.replace("\n", " ")}</div>
             <span className="placeholderNote">Visual preview coming next</span>
           </div>
         )}
