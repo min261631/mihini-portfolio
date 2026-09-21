@@ -4,7 +4,7 @@ import { motion, useReducedMotion } from "motion/react";
 import Image from "next/image";
 import { useRef, useState, type CSSProperties } from "react";
 
-type ProjectVisual = "image" | "learning" | "video" | "concept" | "mapmycoles";
+type ProjectVisual = "image" | "video" | "concept" | "mapmycoles" | "telescope";
 
 interface ProjectShowcaseProps {
   number: string;
@@ -39,6 +39,8 @@ export default function ProjectShowcase({
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(true);
   const [mapVideosPlaying, setMapVideosPlaying] = useState(true);
+  const [telescopePlaying, setTelescopePlaying] = useState(true);
+  const telescopeVideoRef = useRef<HTMLVideoElement>(null);
   const navigationVideoRef = useRef<HTMLVideoElement>(null);
   const arVideoRef = useRef<HTMLVideoElement>(null);
   const prefersReducedMotion = useReducedMotion();
@@ -55,6 +57,19 @@ export default function ProjectShowcase({
       setIsPlaying(false);
     }
   };
+  const toggleTelescopeVideo = () => {
+    const video = telescopeVideoRef.current;
+    if (!video) return;
+
+    if (video.paused) {
+      void video.play();
+      setTelescopePlaying(true);
+    } else {
+      video.pause();
+      setTelescopePlaying(false);
+    }
+  };
+
   const toggleMapVideos = () => {
     const videos = [navigationVideoRef.current, arVideoRef.current].filter(
       (video): video is HTMLVideoElement => Boolean(video)
@@ -178,6 +193,85 @@ export default function ProjectShowcase({
               <span>Motion · Editing · Visual Storytelling</span>
             </div>
           </div>
+        ) : visual === "telescope" ? (
+          <div className="telescopeVisual">
+            <div className="telescopeVideoFrame">
+              <video
+                ref={telescopeVideoRef}
+                src="/projects/telescope/demo.mp4"
+                autoPlay={!prefersReducedMotion}
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                aria-label="Demonstration of the remote observatory web interface"
+                onPlay={() => setTelescopePlaying(true)}
+                onPause={() => setTelescopePlaying(false)}
+              />
+              <div className="telescopeVideoTopline" aria-hidden="true">
+                <span>Remote Scientific Data Capture &amp; Control</span>
+                <span>Live interface</span>
+              </div>
+              <button
+                type="button"
+                className="telescopeVideoControl"
+                onClick={toggleTelescopeVideo}
+                aria-label={telescopePlaying ? "Pause remote observatory demo" : "Play remote observatory demo"}
+              >
+                <span aria-hidden="true">{telescopePlaying ? "Ⅱ" : "▶"}</span>
+                {telescopePlaying ? "Pause" : "Play"}
+              </button>
+            </div>
+
+            <figure className="telescopeShot telescopeShot--feed">
+              <Image
+                src="/projects/telescope/telescope-feed.png"
+                alt="Remote observatory telescope feed showing a live astronomical view, weather information and telescope controls"
+                width={1728}
+                height={886}
+                unoptimized
+              />
+              <figcaption>Live telescope feed · Remote control</figcaption>
+            </figure>
+
+            <figure className="telescopeShot telescopeShot--status">
+              <Image
+                src="/projects/telescope/system-status.png"
+                alt="Remote observatory system status dashboard showing availability, viewing schedule, weather and system information"
+                width={2048}
+                height={700}
+                unoptimized
+              />
+              <figcaption>System status · Monitoring</figcaption>
+            </figure>
+
+            <figure className="telescopeShot telescopeShot--home">
+              <Image
+                src="/projects/telescope/home.png"
+                alt="La Trobe Observatory home interface with launch telescope control and system status actions"
+                width={1728}
+                height={886}
+                unoptimized
+              />
+              <figcaption>Observatory home · Entry point</figcaption>
+            </figure>
+
+            <figure className="telescopeShot telescopeShot--weather">
+              <Image
+                src="/projects/telescope/weather.png"
+                alt="Weather monitoring interface showing live atmospheric and observation conditions"
+                width={1728}
+                height={886}
+                unoptimized
+              />
+              <figcaption>Weather · Observation conditions</figcaption>
+            </figure>
+
+            <div className="telescopeFooter">
+              <span>Live control · Streaming · Monitoring</span>
+              <span>Web interface · Connected systems</span>
+            </div>
+          </div>
         ) : visual === "mapmycoles" ? (
           <div className="mapMyColesVisual">
             <div className="mapPresentation">
@@ -255,10 +349,7 @@ export default function ProjectShowcase({
         ) : (
           <div className={`projectPlaceholder projectPlaceholder--${visual}`}>
             <span className="placeholderEyebrow">{categories}</span>
-            <div className="placeholderTitle">
-              {visual === "learning" && <>Learn.<br />Try.<br />Understand.</>}
-              {visual === "concept" && <>{title.replace("\n", " ")}</>}
-            </div>
+            <div className="placeholderTitle">{title.replace("\n", " ")}</div>
             <span className="placeholderNote">Visual preview coming next</span>
           </div>
         )}
